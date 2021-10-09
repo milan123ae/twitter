@@ -1,0 +1,40 @@
+<% include header %> 
+
+<h1>Tweet Details</h1>
+<div class="list-group">
+<a class="btn btn-default" href="/Naslovna/">GO Back</a> <a class="btn btn-default" href="/logout/">Log out</a>
+</div>
+<ul class="list-group">
+  <li class="list-group-item">Email: <a href="/subscriber/<%= email %>"><%=email %></a> </li> 
+  <li class="list-group-item">TimeID: <%= time %> </li>
+  <li class="list-group-item">Body: <%= body %> </li>
+  <li class="list-group-item">Since: <%= since %> </li>
+</ul>
+    <br>
+    <button class="deletetweet btn btn-danger" href="" data-time="<%= time %>">Delete</button>
+    <button class="likebtn btn btn-default"  data-time="<%= time %>"  data-session="<%= session %>">Like </button> <span class="glyphicon glyphicon-thumbs-up"><% if (likes != null && likes.length > 0){ %>
+    <a data-toggle="collapse" data-target="#ll"><%= likes.length %></a></span>
+    <div id="ll" class="collapse">
+       <% if(likes != null && likes.length > 0){ %>
+    <% likes.forEach(function(like){ %>
+    <li class="list-group-item"> <%= like %></li>
+    <% }) %>
+    <% } %> 
+    </div>
+    <%  } %>
+    <br>
+    <br>
+    Comment:<br />
+  <!-- <textarea name='comment' id='commentt'></textarea><br /> -->
+    <textarea type="text" placeholder="Add Comment" name="comment" id="comment"/></textarea><br />
+    <button href="#" class="insertComment" data-time="<%= time %>">Comment</button>
+<ul class="list-group">
+    <% if(comments != null && comments.length > 0){ %>
+    <% comments.forEach(function(comm){ %>
+    <li class="list-group-item" style="width:500px;"> <%= comm %></li>
+    <% }) %>
+    <% } %>
+</ul>
+
+    
+<% include footer %> 

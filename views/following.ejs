@@ -1,0 +1,13 @@
+<% include header %> 
+
+<ul>
+      <%  subscribers.forEach(function(subscriber){ %>
+          
+          <li> <%= subscriber.following %></li>
+          
+          <% }) %>
+    
+  </ul>
+
+<% include footer %> 
+

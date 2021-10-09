@@ -1,0 +1,38 @@
+CREATE KEYSPACE people WITH REPLICATION = {'class':'SimpleStrategy','replication_factor':3};
+USE people;
+CREATE TABLE subscribers
+(email text,
+pasword text, 
+first_name text,
+last_name text,
+followers list<text>,
+
+following list<text>, 
+PRIMARY KEY(email));
+
+INSERT INTO subscribers(email, pasword, first_name, last_name) VALUES ('user2@gmail.com', 'nikola123','Zinedine' , 'Zidane');
+INSERT INTO subscribers(email, pasword, first_name, last_name) VALUES ('user1@gmail.com', 'user123','Leo' , 'Messi');
+INSERT INTO subscribers(email, pasword, first_name, last_name) VALUES ('milan.rodja1994@gmail.com', 'user12345','James' , 'Rodrigez');
+INSERT INTO subscribers(email, pasword, first_name, last_name) VALUES ('kacica@live.com', 'kacica123','Katarina' , 'Siskovic');
+INSERT INTO subscribers(email, pasword, first_name, last_name) VALUES ('micika94@live.com', 'micika123','Milica' , 'Micic');
+INSERT INTO subscribers(email, pasword, first_name, last_name) VALUES ('cica1994@live.com', 'cica12345','Sandra' , 'Sandero');
+INSERT INTO subscribers(email, pasword, first_name, last_name) VALUES ('cica1994@live.com', 'cica12345','Sandra' , 'Sandero');
+INSERT INTO subscribers(email, pasword, first_name, last_name) VALUES ('maca94@live.com', 'maca12345','Marija' , 'Marinkovic');
+
+update subscribers set followers=followers + ['cica1994@live.com','maca94@live.com'] where email='milan.rodja1994@gmail.com';
+update subscribers set following=following + ['kacica1994@live.com','micika94@live.com'] where email='user1@gmail.com';
+
+CREATE TABLE timeline (
+    email text,
+    time timeuuid,
+    since timestamp,
+    body text,
+    comment list<text>,
+    likes list<text>,
+    PRIMARY KEY (time)
+);
+
+INSERT INTO timeline(email, time, since, body) VALUES ('user2@gmail.com', now(), dateof(now()), 'tweetBAJCA');
+INSERT INTO timeline(email, time, since, body) VALUES ('user2@gmail.com', now(), dateof(now()), 'tweetIDEMOOO');
+INSERT INTO timeline(email, time, since, body) VALUES ('user1@gmail.com', now(), dateof(now()), 'tweetHAJDEE');
+INSERT INTO timeline(email, time, since, body) VALUES ('milan.rodja1994@gmail.com', now(), dateof(now()), 'uopaaaa');

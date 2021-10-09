@@ -1,0 +1,22 @@
+<% include header %>
+
+<h1>Edit Profil</h1><a href="/">GO Back</a><br/><br/>
+<form name="editsubscriber" method="post" action="/editsubscriber">
+  <div>
+    <input id="inputEmail" type="text" placeholder="Add Email" name="email" value="<%= email %>"/>
+  </div>
+  <div>
+    <input id="inputPasword" type="text" placeholder="Add Pasword" name="pasword" value="<%= pasword %>"/>
+  </div>
+  <div>
+    <input id="inputFirstName" type="text" placeholder="Add First Name" name="first_name" value="<%= first_name %>"/>
+  </div>
+  <div>
+    <input id="inputLastName" type="text" placeholder="Add Last Name" name="last_name" value="<%= last_name %>"/>
+  </div>
+  <div>
+    <button id="btnSubmit" type="submit">Submit</button>
+  </div>
+</form>
+
+<% include footer %>

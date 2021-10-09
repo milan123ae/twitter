@@ -1,0 +1,17 @@
+<% include header %> 
+
+<h1>Subscriber Details</h1><a href="/">GO Back</a>|<a class="naslovna" href="/naslovna/">Naslovna</a>
+<ul>
+  <li>First Name: <%= first_name %> </li>
+  <li>Last Name: <%= last_name %> </li>
+  <li>Email: <%= email %> </li>
+  <li>Pasword: <%= pasword %> </li>
+    
+    <% if(session == email){ %>
+    </ul><a class="editsubscriber" href="/editsubscriber/<%= email %>">Edit</a>|<a class="deletesubscriber" href="" data-email="<%= email %>">Delete</a>|
+<% } %>
+
+<a class="followers" href="/followers/<%= email %>">Followers</a>|<a class="following" href="/following/<%= email %>">Following</a>
+
+
+<% include footer %> 

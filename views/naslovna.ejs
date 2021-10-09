@@ -1,0 +1,29 @@
+<% include header %>
+<a href="/subscriber/<%= session %>">GO Back</a><br>
+<form name="add tweet" method="post" action="/naslovna/">
+   <ul class="list-group">
+       <textarea type="text" placeholder="Add Tweet" name="tweet" id="tweet"/></textarea><br />
+         <button id="btnSubmit" type="submit">ADD</button>
+    </ul>
+</form>
+    <ul class="list-group">
+        <% for(var i=0; i<data.length; i++) {%>
+            <li class="list-group-item">
+                <a href="/subscriber/<%=  data[i].email %>">
+                    <%= data[i].email %>
+                </a>
+            </li>
+            <a href="/tweet/<%=  data[i].time %>">
+                <li class="list-group-item" style="height: 100px;">
+                    <%= data[i].body %>
+                </li>
+            </a>
+            <li class="list-group-item">
+                <%= data[i].since %>
+            </li><br>
+
+            <% } %>
+    </ul>
+
+
+    <% include footer %>
